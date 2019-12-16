@@ -1,0 +1,12 @@
+{
+  "name": "lulubot",
+  "version": "1.0.0",
+  "description": "A chatbot learning to speak from Discord messages.",
+  "main": "index.js",
+  "repository": "https://github.com/emyuwu/lulubot.git",
+  "author": "Nay & Odi <pptag@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
