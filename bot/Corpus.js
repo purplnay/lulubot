@@ -6,6 +6,11 @@ class Corpus {
    * @param {Object} [data] The corpus data to use, or none.
    */
   constructor(data = {'%startf%': []}) {
+
+    /**
+     * The corpus structure.
+     * @type {Object}
+     */
     this.words = data;
   }
 

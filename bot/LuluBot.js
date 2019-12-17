@@ -8,14 +8,16 @@ class LuluBot {
   constructor(corpus) {
     if (corpus === undefined) {
       if (fs.existsSync('corpus.json')) {
-        this.corpus = Corpus.fromJSON(fs.readFileSync('corpus.json'));
+        corpus = Corpus.fromJSON(fs.readFileSync('corpus.json'));
       } else {
-        this.corpus = new Corpus();
+        corpus = new Corpus();
       }
-    } else {
-      this.corpus = corpus;
     }
 
+    /**
+     * @type {Corpus}
+     */
+    this.corpus = corpus;
   }
 
   /**
