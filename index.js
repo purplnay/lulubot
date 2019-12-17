@@ -12,6 +12,7 @@ client.on('ready', () => {
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.isMentioned(client.user) && message.channel.type !== 'dm') return;
+  if (message.content.length === 0) return;
 
   // Reply if message author is not bot and if lulubot is mentionned or in dm channel.
   message.channel.send(lulu.reply(message.content));
