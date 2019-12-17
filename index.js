@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const { LuluBot } = require('./bot');
 const credentials = require('./credentials.json');
-const{removeMentions}=require('./bot').utils;
 const client = new Discord.Client();
 const lulu = new LuluBot();
 
