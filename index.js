@@ -14,7 +14,7 @@ client.on('message', message => {
   if (!message.isMentioned(client.user) && message.channel.type !== 'dm') return;
 
   // Reply if message author is not bot and if lulubot is mentionned or in dm channel.
-  message.reply(lulu.reply(message.content));
+  message.channel.send(lulu.reply(message.content));
 });
 
 // Save corpus every 10 minutes
