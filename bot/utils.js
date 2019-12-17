@@ -4,7 +4,7 @@
  * @return {string} The message without mentions
  */
 const removeMentions = message => {
-  return message.replace(/(<@![0-9]+>)|(@[a-z]+)/ig, '');
+  return message.replace(/(<@!?[0-9]+>)|(@[a-z]+)/ig, '');
 };
 
 /**
