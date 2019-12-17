@@ -23,6 +23,6 @@ setInterval(() => {
   lulu.corpus.saveCorpus().then(() => {
     console.log('Success saving corpus.');
   }).catch(e => console.error('Failed saving corpus:', e.message));
-}, 600_000);
+}, 60_000);
 
 client.login(credentials.token);
