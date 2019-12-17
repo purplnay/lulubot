@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Corpus = require('./Corpus');
+const { getCommand } = require('./utils');
 
 class LuluBot {
   /**
@@ -18,17 +19,69 @@ class LuluBot {
      * @type {Corpus}
      */
     this.corpus = corpus;
+
+    /**
+     * @type {boolean}
+     */
+    this.sleeping = false;
   }
 
   /**
-   * Learn from a message, then build a reply.
+   * Learn from a message or executes a command, then build a reply.
    * @param {string} message The discord message object.
-   * @return {string} The bot-generated messasge.
+   * @return {string} The bot-generated messasge or the command's reply.
    */
   reply(message) {
-    this.corpus.updateCorpus(message);
+    let answer = '';
 
-    return this.corpus.generateMessage();
+    switch (command) {
+      case '!start':
+        answer = this._start();
+        break;
+      case '!stop':
+        answer = this._stop();
+        break;
+      case '!status':
+        answer = this._getStatus();
+        break;
+      default:
+        if (!this.sleeping) this.corpus.updateCorpus(message);
+        answer = this.corpus.generateMessage();
+        break;
+    }
+
+    return answer;
+  }
+
+  /**
+   * Start the learning process.
+   * @return {string}
+   * @private
+   */
+  _start() {
+    this.sleeping = false;
+
+    return '> *Wakes up*';
+  }
+
+  /**
+   * Stop the learning process.
+   * @return {string}
+   * @private
+   */
+  _stop() {
+    this.sleeping = true;
+
+    return '> *Zzzzz*';
+  }
+
+  /**
+   * Get the bot's status.
+   * @return {string}
+   * @private
+   */
+  _getStatus() {
+    return this.sleeping ? '> Sleeping.' : '> Learning.';
   }
 }
 

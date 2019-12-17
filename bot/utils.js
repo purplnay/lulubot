@@ -25,6 +25,21 @@ const removeDelimiters = message => {
   return message.replace(/%startf%/g, 'startf').replace(/%endf%/g, 'endf');
 };
 
+/**
+ * Get the command name from a message, or null if none.
+ * @param {string} message 
+ * @return {string|null}
+ */
+const getCommand = message => {
+  const command = trimMessage(removeMentions(message)).trim();
+  
+  if (['!start', '!stop', '!status'].indexOf(command) !== -1) {
+    return command;
+  }
+
+  return null;
+}
+
 module.exports = {
-  removeMentions, trimMessage, removeDelimiters
+  removeMentions, trimMessage, removeDelimiters, getCommand
 };
