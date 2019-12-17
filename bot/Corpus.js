@@ -25,6 +25,8 @@ class Corpus {
 
     // Add words to the corpus.
     words.forEach((word, index) => {
+      if (word === '%endf%') return;
+      
       if (this.words[word] === undefined) this.words[word] = [];
 
       this.words[word].push(words[index + 1]);
