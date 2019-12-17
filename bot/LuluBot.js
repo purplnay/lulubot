@@ -34,7 +34,7 @@ class LuluBot {
   reply(message) {
     let answer = '';
 
-    switch (command) {
+    switch (getCommand(message)) {
       case '!start':
         answer = this._start();
         break;
@@ -61,7 +61,7 @@ class LuluBot {
   _start() {
     this.sleeping = false;
 
-    return '> *Wakes up*';
+    return '*Wakes up*';
   }
 
   /**
@@ -72,7 +72,7 @@ class LuluBot {
   _stop() {
     this.sleeping = true;
 
-    return '> *Zzzzz*';
+    return '*Zzzzz*';
   }
 
   /**
@@ -81,7 +81,7 @@ class LuluBot {
    * @private
    */
   _getStatus() {
-    return this.sleeping ? '> Sleeping.' : '> Learning.';
+    return this.sleeping ? '*Sleeping*' : '*Learning*';
   }
 }
 
