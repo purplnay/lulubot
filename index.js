@@ -10,7 +10,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  console.log(message.author.bot, !message.isMentioned(client.user), message.channel.type !== 'dm')
   if (message.author.bot) return;
   if (!message.isMentioned(client.user) && message.channel.type !== 'dm') return;
 
