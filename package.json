@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A chatbot learning to speak from Discord messages.",
   "main": "index.js",
-  "repository": "https://github.com/emyuwu/lulubot.git",
-  "author": "Nay & Odi <pptag@outlook.com>",
+  "repository": "https://github.com/purplnay/lulubot.git",
+  "author": "Nay <nay@purpltag.com>",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1"
